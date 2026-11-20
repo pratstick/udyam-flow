@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Flask / Web server files
+instance/
+.webassets-cache
+*.log
+
+# macOS metadata (present in unpacked archives)
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+._*
+
+# Windows system files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Editor & IDE configurations
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+
+# Temporary / backup files
+*.bak
+*.tmp
+*~
+
+# Redundant / duplicate presentations (optional, uncomment if you prefer keeping only docs/)
+# test_*.pptx

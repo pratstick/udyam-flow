@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtel SYNC · Project Udyam Digital Prototype</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="brand-badge">airtel</div>
+            <div>
+                <div class="brand-title">Project Udyam Digital</div>
+                <div class="brand-tag">Accel Business · One-Sitting Onboarding</div>
+            </div>
+        </div>
+        <div class="nav-meta">
+            <div class="lang-selector">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="hi">हिन्दी</button>
+                <button class="lang-btn" data-lang="ta">தமிழ்</button>
+                <button class="lang-btn" data-lang="te">తెలుగు</button>
+            </div>
+            <div class="team-pill">
+                Team TheSaints · PEC Chandigarh
+            </div>
+        </div>
+    </header>
+
+    <!-- TABS BAR -->
+    <nav class="tabs-bar">
+        <button class="tab-btn active" data-target="advisor-view">
+            <span>💬 AI Conversational Advisor</span>
+            <span class="tab-badge">Indic GenAI</span>
+        </button>
+        <button class="tab-btn" data-target="quote-view">
+            <span>📋 Modular Quote & Checkout</span>
+            <span class="tab-badge">Transparent</span>
+        </button>
+        <button class="tab-btn" data-target="kyc-view">
+            <span>⚡ Smart 120-Sec KYC</span>
+            <span class="tab-badge">DPDP 2023</span>
+        </button>
+        <button class="tab-btn" data-target="tracker-view">
+            <span>📦 Live Order Tracker</span>
+            <span class="tab-badge">Self-Serve</span>
+        </button>
+        <button class="tab-btn" data-target="partner-view">
+            <span>💼 Partner Triage & Back-Office</span>
+            <span class="tab-badge">Stretch</span>
+        </button>
+    </nav>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="main-content">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: CONVERSATIONAL AI ADVISOR -->
+        <!-- ========================================== -->
+        <section id="advisor-view" class="view-section active">
+            <div class="grid-2">
+                <!-- Chat Interface -->
+                <div>
+                    <div class="chat-window">
+                        <div class="chat-header">
+                            <div class="advisor-status">
+                                <div class="status-dot"></div>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 14px;">Accel AI Digital Advisor</div>
+                                    <div style="font-size: 11px; color: #6B7280;">Multilingual Voice & Text Engine · Instant Bundle Solver</div>
+                                </div>
+                            </div>
+                            <button id="voice-btn" class="voice-btn" title="Simulate Voice Input">🎤</button>
+                        </div>
+                        <div id="chat-messages" class="chat-messages">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" class="chat-input" placeholder="Type your requirements in Hindi, English, Tamil, Telugu...">
+                            <button id="chat-send-btn" class="btn btn-primary" style="border-radius: 9999px; padding: 10px 18px;">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advisor Rationale Card -->
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">💡 How Needs Discovery Works Without Sales Reps</div>
+                        </div>
+                        <p style="font-size: 13px; color: #4B5563; line-height: 1.6;">
+                            Traditional telco sales require a physical sales visit (3–5 day delay), resulting in <b>531 dropped leads</b> where the small business owner had no time to meet.
+                        </p>
+                        <div style="margin-top: 14px; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 14px;">
+                            <div style="font-weight: 700; font-size: 13px; color: #E40000;">THE 4-QUESTION DISCOVERY ENGINE:</div>
+                            <ol style="margin: 8px 0 0 20px; font-size: 12.5px; color: #374151; line-height: 1.6;">
+                                <li><b>Business Type</b> (Clinic, Retail, Multi-site, Workshop)</li>
+                                <li><b>Scale & Footprint</b> (Staff count, single vs multi-branch)</li>
+                                <li><b>Current Pain Points</b> (POS downtime, high bill, data security)</li>
+                                <li><b>Essential Add-Ons</b> (WhatsApp orders, CCTV, Cloud Backup)</li>
+                            </ol>
+                        </div>
+
+                        <div style="margin-top: 18px;">
+                            <div style="font-weight: 700; font-size: 13px; color: #111827; margin-bottom: 8px;">Try Sample Personas (1-Click Demo):</div>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <button class="btn btn-secondary" style="justify-content: flex-start; text-align: left;" onclick="handleUserMessage('I run Balaji Dental Care with 6 staff. I need fast internet, 1TB cloud backup for patient X-rays, and endpoint antivirus.')">
+                                    🏥 <b>Doctor / Clinic</b>: 300 Mbps + Cloud Backup + Antivirus
+                                </button>
+                                <button class="btn btn-secondary" style="justify-content: flex-start; text-align: left;" onclick="handleUserMessage('We are a 3-store restaurant chain. We need Wi-Fi with 4G failover so payment machines never go down, plus CCTV cameras.')">
+                                    🏬 <b>Restaurant Chain</b>: Multi-Site + Failover SIM + CCTV
+                                </button>
+                                <button class="btn btn-secondary" style="justify-content: flex-start; text-align: left;" onclick="handleUserMessage('Mera kirana store hai, mujhe fast internet chahiye UPI payments ke liye aur WhatsApp par order lene ke liye.')">
+                                    🏪 <b>Kirana Merchant (Hindi)</b>: 5G AirFiber + WhatsApp API
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: MODULAR QUOTE & CHECKOUT -->
+        <!-- ========================================== -->
+        <section id="quote-view" class="view-section">
+            <div class="grid-2">
+                <!-- Add-on Configurator -->
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">🛠 Customize Your Business Bundle</div>
+                                <div class="card-subtitle">Toggle optional add-ons with 100% price transparency. No hidden codes.</div>
+                            </div>
+                        </div>
+
+                        <div style="font-weight: 700; font-size: 13px; color: #374151; margin-bottom: 10px;">Select Contract Commitment:</div>
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                            <button class="btn btn-secondary term-btn" data-months="6">6 Months</button>
+                            <button class="btn btn-primary term-btn" data-months="12">12 Months (Zero Setup Fee)</button>
+                            <button class="btn btn-secondary term-btn" data-months="24">24 Months (Max Discount)</button>
+                        </div>
+
+                        <div style="font-weight: 700; font-size: 13px; color: #374151; margin-bottom: 10px;">Modular Digital Add-Ons:</div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <div style="font-weight: 700; font-size: 13.5px;">Cloud CCTV Security (P23)</div>
+                                <div style="font-size: 12px; color: #6B7280;">7-day cloud storage, motion detection, live mobile feed</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <b style="font-size: 13px;">+₹199/mo</b>
+                                <label class="switch">
+                                    <input type="checkbox" class="addon-toggle" data-addon="cctv">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <div style="font-weight: 700; font-size: 13.5px;">4G/5G Wireless Backup Failover (P09)</div>
+                                <div style="font-size: 12px; color: #6B7280;">Instant auto-switching so card swipe & UPI QR never drop</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <b style="font-size: 13px;">+₹499/mo</b>
+                                <label class="switch">
+                                    <input type="checkbox" class="addon-toggle" data-addon="failover">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <div style="font-weight: 700; font-size: 13.5px;">Cloud Backup 1 TB (P17)</div>
+                                <div style="font-size: 12px; color: #6B7280;">Automated daily ransomware-proof backup for accounts & files</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <b style="font-size: 13px;">+₹499/mo</b>
+                                <label class="switch">
+                                    <input type="checkbox" class="addon-toggle" data-addon="backup">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <div style="font-weight: 700; font-size: 13.5px;">Cloud POS & Billing Software (P19)</div>
+                                <div style="font-size: 12px; color: #6B7280;">GST e-invoicing, digital receipts & inventory tracker</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <b style="font-size: 13px;">+₹599/mo</b>
+                                <label class="switch">
+                                    <input type="checkbox" class="addon-toggle" data-addon="pos">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <div style="font-weight: 700; font-size: 13.5px;">Dedicated Static IPv4 (P11)</div>
+                                <div style="font-size: 12px; color: #6B7280;">Required for remote desktop, on-site server, or biometric attendance</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <b style="font-size: 13px;">+₹200/mo</b>
+                                <label class="switch">
+                                    <input type="checkbox" class="addon-toggle" data-addon="static_ip">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Summary Box -->
+                <div>
+                    <div class="quote-box">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="badge-success">Guaranteed Price Lock</span>
+                            <span style="font-size: 12px; color: #6B7280;">Quote Ref: <b>Q-2026-UDYAM</b></span>
+                        </div>
+
+                        <div id="quote-bundle-title" style="font-size: 20px; font-weight: 800; color: #111827; margin-top: 10px;">
+                            Office Pro Suite
+                        </div>
+
+                        <div class="price-display">
+                            <span class="price-currency">₹</span>
+                            <span id="quote-monthly-total" class="price-amount">2,247</span>
+                            <span class="price-period">/ month + GST</span>
+                        </div>
+
+                        <div style="border-top: 1px solid #F3F4F6; margin: 14px 0 10px; padding-top: 10px;">
+                            <div style="font-weight: 700; font-size: 12.5px; color: #6B7280; text-transform: uppercase;">Included In Core Bundle:</div>
+                            <div id="quote-base-items">
+                                <!-- Base products rendered dynamically -->
+                            </div>
+                        </div>
+
+                        <div id="quote-addon-items">
+                            <!-- Active addons rendered dynamically -->
+                        </div>
+
+                        <div class="line-item" style="margin-top: 12px; padding-top: 12px; border-top: 2px dashed #E5E7EB;">
+                            <span>One-Time Hardware & Setup Fee:</span>
+                            <b id="quote-setup-fee" style="color: #16A34A;">FREE (12m commitment)</b>
+                        </div>
+
+                        <div style="margin-top: 24px;">
+                            <button class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 15px;" onclick="switchTab('kyc-view')">
+                                Proceed to Instant Smart KYC (2 Mins) →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: SMART KYC & DPDP COMPLIANCE -->
+        <!-- ========================================== -->
+        <section id="kyc-view" class="view-section">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">⚡ Smart KYC & Paperless Verification Engine</div>
+                        <div class="card-subtitle">DPDP Act 2023 Compliant · Instant API Registry Fetch & Anomaly Guard</div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <span style="font-size: 12px; color: #6B7280; align-self: center;">Test Dataset Applicants:</span>
+                        <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="loadSpecimenApplicant('K01')">K01 (Clean Clinic)</button>
+                        <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="loadSpecimenApplicant('K05')">K05 (Planted Expired Bill)</button>
+                        <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11.5px;" onclick="loadSpecimenApplicant('K09')">K09 (Suspended GSTIN)</button>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Left: Input Form -->
+                    <div>
+                        <div style="margin-bottom: 14px;">
+                            <label style="font-size: 12.5px; font-weight: 700; color: #374151; display: block; margin-bottom: 4px;">
+                                Track A: Enter GSTIN (Fetches from 3,534 Mock Registry Records)
+                            </label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="text" id="kyc-gstin-input" class="chat-input" placeholder="e.g. 32TTNXB7384T1ZW" value="32TTNXB7384T1ZW">
+                                <button id="gstin-lookup-btn" class="btn btn-primary">Lookup</button>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 14px;">
+                            <label style="font-size: 12.5px; font-weight: 700; color: #374151; display: block; margin-bottom: 4px;">
+                                Or Udyam Registration Number (Fetches from 2,723 Records)
+                            </label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="text" id="kyc-udyam-input" class="chat-input" placeholder="e.g. UDYAM-KL-00-3078801" value="UDYAM-KL-00-3078801">
+                                <button id="udyam-lookup-btn" class="btn btn-secondary">Lookup</button>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 14px;">
+                            <label style="font-size: 12.5px; font-weight: 700; color: #374151; display: block; margin-bottom: 4px;">
+                                Authorised Signatory Name (Proprietor / Director)
+                            </label>
+                            <input type="text" id="kyc-signatory-name" class="chat-input" style="width: 100%;" placeholder="e.g. Ramesh Nair" value="Ramesh Nair">
+                        </div>
+
+                        <div style="margin-bottom: 18px;">
+                            <label style="font-size: 12.5px; font-weight: 700; color: #374151; display: block; margin-bottom: 4px;">
+                                Address Proof Utility Bill Date (Planted Anomaly Filter)
+                            </label>
+                            <input type="date" id="kyc-doc-date" class="chat-input" style="width: 100%;" value="2026-06-10">
+                            <small style="font-size: 11px; color: #6B7280;">Case Rule: Address proof must be no older than 90 days from 2026-07-15.</small>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-primary" style="width: 100%; padding: 12px;" onclick="openDpdpModal()">
+                                Review DPDP Consent & Verify Document →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Autofill Preview & Results -->
+                    <div>
+                        <!-- Autofill Card -->
+                        <div id="kyc-autofill-card" style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <div style="font-weight: 700; font-size: 13.5px; color: #111827;">Registry Live Record</div>
+                                <span id="autofill-status" class="badge-success">Active</span>
+                            </div>
+                            <div style="font-size: 13px; margin-bottom: 4px;">
+                                Legal Name: <b id="autofill-legal-name">Balaji Dental Care LLP</b>
+                            </div>
+                            <div style="font-size: 12.5px; color: #4B5563; margin-bottom: 4px;">
+                                Constitution: <span id="autofill-constitution">Limited Liability Partnership</span>
+                            </div>
+                            <div style="font-size: 12px; color: #6B7280;">
+                                Address: <span id="autofill-address">Shop/Unit 164, Station Road, Kochi, Kerala - 289398</span>
+                            </div>
+                        </div>
+
+                        <!-- Verification Alert Box -->
+                        <div id="kyc-results-box" style="display: none;">
+                            <!-- Populated after verify button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: LIVE ORDER TRACKER -->
+        <!-- ========================================== -->
+        <section id="tracker-view" class="view-section">
+            <div class="grid-2">
+                <!-- Order Status & Timeline -->
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">📦 Live Self-Serve Order Status</div>
+                                <div class="card-subtitle">Order ID: <b id="tracker-order-id">ORD-82914</b> · Eliminates 3+ Status Chase Calls</div>
+                            </div>
+                            <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;" onclick="advanceOrderSimulation()">
+                                ⏩ Simulate Next Stage
+                            </button>
+                        </div>
+
+                        <div class="timeline">
+                            <div id="step-order_placed" class="timeline-step completed">
+                                <div class="step-marker"></div>
+                                <div class="step-title">1. Order Confirmed & Customized</div>
+                                <div class="step-desc">Bundle configured via AI Advisor; transparent pricing approved.</div>
+                            </div>
+                            <div id="step-kyc_verified" class="timeline-step completed">
+                                <div class="step-marker"></div>
+                                <div class="step-title">2. Smart KYC & DPDP Verified</div>
+                                <div class="step-desc">Mock GSTIN registry validated; Aadhaar OTP e-Sign completed.</div>
+                            </div>
+                            <div id="step-tech_dispatched" class="timeline-step active">
+                                <div class="step-marker"></div>
+                                <div class="step-title">3. Field Engineer Assigned & Dispatched</div>
+                                <div class="step-desc">Hardware allocated from local hub; technician en route.</div>
+                            </div>
+                            <div id="step-site_feasibility" class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-title">4. Site Installation & Wi-Fi Heatmapping</div>
+                                <div class="step-desc">Cabling, router installation, and CCTV angle calibration.</div>
+                            </div>
+                            <div id="step-activated" class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-title">5. Activated & 99.9% SLA Online</div>
+                                <div class="step-desc">Service live on single bill with unified customer support.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Field Dispatch Card & Reschedule -->
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">👷 Assigned Field Engineer</div>
+                        </div>
+
+                        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 16px;">
+                            <div style="width: 52px; height: 52px; background: #FFF1F1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #E40000; font-weight: 800;">
+                                👷
+                            </div>
+                            <div>
+                                <div id="tracker-tech-name" style="font-size: 16px; font-weight: 700;">Suresh Kumar</div>
+                                <div style="font-size: 12px; color: #6B7280;">Certified Accel Enterprise Field Technician</div>
+                                <div id="tracker-tech-phone" style="font-size: 13px; font-weight: 600; color: #0284C7; margin-top: 2px;">+91 98110 54321</div>
+                            </div>
+                        </div>
+
+                        <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 14px; margin-bottom: 18px;">
+                            <div style="font-size: 12px; color: #6B7280;">Confirmed Installation Slot:</div>
+                            <div id="tracker-slot" style="font-size: 15px; font-weight: 800; color: #111827; margin: 2px 0 10px;">
+                                Tomorrow, 10:30 AM - 12:30 PM
+                            </div>
+                            <button class="btn btn-outline-danger" style="width: 100%;" onclick="rescheduleSlot()">
+                                📅 1-Click Reschedule Installation Slot
+                            </button>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 12.5px; font-weight: 700; color: #374151; margin-bottom: 6px;">Order Details:</div>
+                            <div style="font-size: 13px; margin-bottom: 4px;">Business: <b id="tracker-business-name">Balaji Dental Care</b></div>
+                            <div style="font-size: 13px; margin-bottom: 4px;">Bundle: <b id="tracker-bundle-name">Office Pro Suite</b></div>
+                            <div style="font-size: 13px; color: #E40000;">Monthly Billing: <b id="tracker-price">₹2,247/mo</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 5: PARTNER BACK-OFFICE & TRIAGE -->
+        <!-- ========================================== -->
+        <section id="partner-view" class="view-section">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">💼 Channel Partner Triage & Warm-Lead Portal</div>
+                        <div class="card-subtitle">Zero Channel Conflict: 100% Commission Parity & Abandoned Funnel Recovery</div>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <span class="badge-success">Partner ID: PRT-KOCHI-04</span>
+                        <span class="badge-warning">Commission: 100% Digital Parity</span>
+                    </div>
+                </div>
+
+                <div class="grid-3" style="margin-bottom: 20px;">
+                    <div style="background: #FFF1F1; border: 1px solid #FCA5A5; border-radius: 8px; padding: 14px;">
+                        <div style="font-size: 11px; color: #991B1B; font-weight: 700;">FUNNEL DROPS RESCUED</div>
+                        <div style="font-size: 24px; font-weight: 800; color: #E40000; margin-top: 4px;">1,043 Leads</div>
+                        <div style="font-size: 11.5px; color: #7F1D1D; margin-top: 2px;">Assigned to nearby partners</div>
+                    </div>
+                    <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 14px;">
+                        <div style="font-size: 11px; color: #166534; font-weight: 700;">PARTNER ASSISTED CONVERSION</div>
+                        <div style="font-size: 24px; font-weight: 800; color: #16A34A; margin-top: 4px;">22.5%</div>
+                        <div style="font-size: 11.5px; color: #14532D; margin-top: 2px;">Up from baseline 7.4%</div>
+                    </div>
+                    <div style="background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 8px; padding: 14px;">
+                        <div style="font-size: 11px; color: #075985; font-weight: 700;">YOUR ACTIVE ATTRIBUTIONS</div>
+                        <div style="font-size: 24px; font-weight: 800; color: #0284C7; margin-top: 4px;">₹48,200</div>
+                        <div style="font-size: 11.5px; color: #0369A1; margin-top: 2px;">Earned this month via QR tag</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="font-weight: 700; font-size: 13.5px; margin-bottom: 8px;">
+                        Live Abandoned Leads Feed (From smb_leads.csv with ML Propensity Score):
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Lead ID</th>
+                                <th>Business Name & City</th>
+                                <th>Drop Reason</th>
+                                <th>Propensity Score</th>
+                                <th>Monthly Spend</th>
+                                <th>Partner Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="backoffice-leads-body">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- DPDP ACT 2023 CONSENT MODAL -->
+    <div id="dpdp-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <div style="font-weight: 800; font-size: 16px; color: #E40000;">DPDP Act, 2023 Statutory Consent</div>
+                <button onclick="closeDpdpModal()" style="border: none; background: none; font-size: 18px; cursor: pointer;">✕</button>
+            </div>
+            <p style="font-size: 13px; color: #374151; line-height: 1.5; margin-bottom: 12px;">
+                In compliance with the <b>Digital Personal Data Protection Act, 2023</b>, Accel Telecom requires your explicit consent to access and process your enterprise records:
+            </p>
+            <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px; font-size: 12px; color: #4B5563; margin-bottom: 16px;">
+                ✔ <b>Purpose Limitation:</b> Data will be accessed exclusively for telecom customer verification and billing setup.<br><br>
+                ✔ <b>Data Minimisation:</b> Aadhaar numbers are cryptographically masked (<code>XXXX-XXXX-8924</code>). Raw identity cards are never stored in plain text.<br><br>
+                ✔ <b>Auto-Purge Policy:</b> Uncompleted draft KYC submissions are permanently deleted after 7 days.<br><br>
+                ✔ <b>Data Principal Rights:</b> You retain the right to withdraw consent and view audit access logs at any time.
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeDpdpModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="executeSmartKycVerification()">I Consent & Verify →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
